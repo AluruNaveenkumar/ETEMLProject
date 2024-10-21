@@ -7,6 +7,7 @@ from src.logger import logging
 from dataclasses import dataclass
 from logger import logging
 from sklearn.model_selection import train_test_split
+from src.components.data_transformation import DataTransformation
 
 @dataclass
 class DataIngestionConfig:
@@ -41,14 +42,16 @@ class DataIngestion:
             logging.info("Test data file is saved in Artifacts folder")
 
             return(
-                self.DataIngestionConfigObj.test_data_path,
+                self.DataIngestionConfigObj.train_data_path,
                 self.DataIngestionConfigObj.test_data_path
                 )
         except Exception as e:
-                 CustomException(e,sys)
+                 raise CustomException(e,sys)
                  logging.info("Error while initiate the Data Ingestion"+e)
 
 
 if __name__=='__main__':
      obj=DataIngestion()
-     obj.initiate_data_ingestion()
+     train,test=obj.initiate_data_ingestion()
+     obj1=DataTransformation()
+     obj1.initiate_data_transformation(train,test)
