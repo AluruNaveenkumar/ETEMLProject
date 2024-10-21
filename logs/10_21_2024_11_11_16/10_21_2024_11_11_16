@@ -1,0 +1,5 @@
+2024-10-21 11:11:17,475 - 24 - root - Initiating Data Injection,
+2024-10-21 11:11:17,487 - 27 - root - Dataframe is created successfully,
+2024-10-21 11:11:17,491 - 30 - root - Raw data file is saved in Artifact location,
+2024-10-21 11:11:17,495 - 36 - root - Train data file is saved in Artifacts folder,
+2024-10-21 11:11:17,497 - 41 - root - Test data file is saved in Artifacts folder,
