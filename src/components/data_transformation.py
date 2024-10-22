@@ -1,27 +1,26 @@
-import os
-import pandas as pd
-import numpy as np
 import sys
-sys.path.insert(0, os.curdir)
-from src.exception import CustomException
-from src.logger import logging
 from dataclasses import dataclass
+
+import numpy as np 
+import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import StandardScaler,OneHotEncoder
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from src.utils import save
+from sklearn.preprocessing import OneHotEncoder,StandardScaler
 
+from src.exception import CustomException
+from src.logger import logging
+import os
 
+from src.utils import save_object
 
-@dataclass
 @dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
 
-class DataTransformation():
+class DataTransformation:
     def __init__(self):
-        self.DataTransformationConfig_obj = DataTransformationConfig()
+        self.data_transformation_config=DataTransformationConfig()
 
     def get_data_transformer_object(self):
         '''
@@ -86,7 +85,7 @@ class DataTransformation():
 
             preprocessing_obj=self.get_data_transformer_object()
 
-            target_column_name="math score"
+            target_column_name="math_score"
             numerical_columns = ["writing_score", "reading_score"]
 
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
@@ -109,7 +108,7 @@ class DataTransformation():
 
             logging.info(f"Saved preprocessing object.")
 
-            save(
+            save_object(
 
                 file_path=self.data_transformation_config.preprocessor_obj_file_path,
                 obj=preprocessing_obj
