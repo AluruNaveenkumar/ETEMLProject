@@ -1,0 +1,5 @@
+2024-10-22 13:43:37,229 - 97 - werkzeug -  * Debugger is active!,
+2024-10-22 13:43:37,235 - 97 - werkzeug -  * Debugger PIN: 108-497-401,
+2024-10-22 13:43:50,974 - 97 - werkzeug - 127.0.0.1 - - [22/Oct/2024 13:43:50] "GET /predictdata HTTP/1.1" 200 -,
+2024-10-22 13:44:10,950 - 97 - werkzeug - 127.0.0.1 - - [22/Oct/2024 13:44:10] "POST /predictdata HTTP/1.1" 200 -,
+2024-10-22 13:44:50,644 - 97 - werkzeug -  * Detected change in 'd:\\krish naik_ml_dl_nlp_udemy course\\etemlproject\\src\\pipeline\\predict_pipeline.py', reloading,
